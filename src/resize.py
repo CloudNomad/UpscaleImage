@@ -9,6 +9,9 @@ import os
 import cv2
 from cv2 import dnn_superres
 from PIL import Image
+import argparse
+import time
+import os
 import numpy as np
 
 dirname = os.path.dirname(__file__)
@@ -44,6 +47,30 @@ try:
     cv2.imwrite(imgDst + 'sharpened_img.png', result)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+    # # set the base width of the result
+    # basewidth = 3840
+    # img = Image.open(imgDst + 'sharpened_img.png')
+    # # determining the height ratio
+    # wpercent = (basewidth/float(img.size[0]))
+    # hsize = int((float(img.size[1])*float(wpercent)))
+    # # resize image and save
+    # img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+    # img.save('new_image.jpg')
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-m", "--model", required=True,
+	    help="path to super resolution model")
+    ap.add_argument("-i", "--image", required=True,
+	    help="path to input image we want to increase resolution of")
+    args = vars(ap.parse_args())
+
+    # modelName = args["model"].split(os.path.sep)[-1].split("_")[0].lower()
+    # modelScale = args["model"].split("_x")[-1]
+    # modelScale = int(modelScale[:modelScale.find(".")])
+    
+    sr.readModel(args["model"])
+    sr.setModel(modelName, modelScale)
 
     print('\nImage rescaling complete!')
 
