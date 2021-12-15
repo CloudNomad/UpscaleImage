@@ -58,12 +58,12 @@ try:
     # img = img.resize((basewidth,hsize), Image.ANTIALIAS)
     # img.save('new_image.jpg')
 
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-m", "--model", required=True,
-	    help="path to super resolution model")
-    ap.add_argument("-i", "--image", required=True,
-	    help="path to input image we want to increase resolution of")
-    args = vars(ap.parse_args())
+    # ap = argparse.ArgumentParser()
+    # ap.add_argument("-m", "--model", required=True,
+	#     help="path to super resolution model")
+    # ap.add_argument("-i", "--image", required=True,
+	#     help="path to input image we want to increase resolution of")
+    # args = vars(ap.parse_args())
 
     # modelName = args["model"].split(os.path.sep)[-1].split("_")[0].lower()
     # modelScale = args["model"].split("_x")[-1]
