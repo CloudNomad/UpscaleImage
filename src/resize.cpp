@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	imshow("SR upscaled",result);
 	imshow("OpenCV upscaled",resized);
 	waitKey(0);
-	destroyAllWindows();
+// 	destroyAllWindows();
 
 	return 0;
 }
